@@ -14,3 +14,7 @@ Email: lindonlinux@gmail.com
 
 You can accsess the website here,
 https://vanderkraai.github.io/pepsi.html
+
+
+© 2026 vanderkraai. All rights reserved.
+No permission is granted to use, copy, or modify this code without explicit consent.
