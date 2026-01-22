@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepsi Dee HQ</title>
+    <link rel="stylesheet" href="pepsi.css">
+    <style>
+        html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('file_00000000e048722fa4d2e2c0559f22a9.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    scroll-behavior: smooth;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+}
+
+.logo {
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto 30px;
+}
+
+.pepsi-text {
+    color: white;
+    font-size: 48px;
+    margin: 0;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black,
+        -2px 0 0 black,
+        2px 0 0 black,
+        0 -2px 0 black,
+        0 2px 0 black;
+}
+
+/* Sticky Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.3), rgba(128, 0, 128, 0.3));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.navbar.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo {
+    max-width: 45px;
+    height: auto;
+}
+
+.nav-title {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+/* Content Section */
+.content-section {
+    min-height: 100vh;
+    padding: 60px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-margin-top: 80px;
+}
+
+.section-title {
+    color: white;
+    font-size: 48px;
+    margin-bottom: 50px;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black,
+        -2px 0 0 black,
+        2px 0 0 black,
+        0 -2px 0 black,
+        0 2px 0 black;
+    opacity: 0;
+    transition: opacity 1.5s ease-out 0.4s;
+}
+
+.section-title.visible {
+    opacity: 1;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Glass Box Styling */
+.glass-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    width: 300px;
+    color: white;
+    font-size: 16px;
+    line-height: 1.6;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    opacity: 0;
+    transition: opacity 0.7s ease-out 0.15s;
+}
+
+.glass-box.visible {
+    opacity: 1;
+}
+
+.glass-box a {
+    color: #87CEEB;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.glass-box a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.glass-box.left {
+    align-self: flex-start;
+    margin-left: 40px;
+}
+
+.glass-box.right {
+    align-self: flex-end;
+    margin-right: 40px;
+}
+
+.logo-middle {
+    flex: 0 1 300px;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.7s ease-out 0.15s;
+}
+
+.logo-middle.visible {
+    opacity: 1;
+}
+
+.center-logo {
+    max-width: 250px;
+    height: auto;
+}
+
+.team-dig-box {
+    align-self: center;
+    margin: 0 auto;
+}
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <img src="c:/Users/vanderkraai/Downloads/ChatGPT Image Jan 22, 2026, 03_21_49 PM.png" alt="Pepsi Dee Logo" class="logo">
+            <h1 class="pepsi-text">Pepsi Dee HQ</h1>
+        </div>
+    </section>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="c:/Users/vanderkraai/Downloads/ChatGPT Image Jan 22, 2026, 03_21_49 PM.png" alt="Pepsi Dee Logo" class="nav-logo">
+                <span class="nav-title">Pepsi Dee HQ</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About Me</a>
+                <a href="#who-are-we" class="nav-link">Who Are We</a>
+                <a href="#team-dig" class="nav-link">About Team Dig</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Me Section -->
+    <section class="content-section" id="about">
+        <h2 class="section-title">About Me</h2>
+        
+        <div class="content-wrapper">
+            <div class="glass-box left">
+                <p>At Pepsi Dee HQ we like to catch cheaters that ruin the players expiriance.</p>
+            </div>
+
+            <div class="logo-middle">
+                <img src="c:/Users/vanderkraai/Downloads/ChatGPT Image Jan 22, 2026, 03_21_49 PM.png" alt="Pepsi Dee Logo" class="center-logo">
+            </div>
+
+            <div class="glass-box right">
+                <p>To support Pepsi Dee HQ please subscribe to my youtube at <a href="https://www.youtube.com/@PepsiDee" target="_blank">https://www.youtube.com/@PepsiDee</a> and if you can, join the team at <a href="https://discord.gg/pepsidee" target="_blank">discord.gg/pepsidee</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Are We Section -->
+    <section class="content-section" id="who-are-we">
+        <h2 class="section-title">Who Are We</h2>
+        
+        <div class="content-wrapper">
+            <div class="glass-box left">
+                <p>Pepsi Dee HQ is dedicated to maintaining fair gameplay and protecting the gaming community.</p>
+            </div>
+
+            <div class="logo-middle">
+                <img src="c:/Users/vanderkraai/Downloads/ChatGPT Image Jan 22, 2026, 03_21_49 PM.png" alt="Pepsi Dee Logo" class="center-logo">
+            </div>
+
+            <div class="glass-box right">
+                <p>Our mission is to ensure every player has an enjoyable and cheat-free experience. Join us in making gaming better for everyone.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Team Dig Section -->
+    <section class="content-section" id="team-dig">
+        <h2 class="section-title">About Team Dig</h2>
+        
+        <div class="content-wrapper">
+            <div class="logo-middle">
+                <img src="c:/Users/vanderkraai/Downloads/ChatGPT Image Jan 22, 2026, 03_21_49 PM.png" alt="Pepsi Dee Logo" class="center-logo">
+            </div>
+
+            <div class="glass-box team-dig-box">
+                <p>Team Dig believes in digging deep and exploring new frontiers instead of rebuilding the space rocket. We focus on discovering what lies beneath, uncovering hidden potential, and pushing boundaries through exploration. Our approach emphasizes innovation through understanding rather than reconstruction.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const targetPosition = target.offsetTop;
+                    const duration = 400; // milliseconds - faster
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    let start = null;
+
+                    const animation = (currentTime) => {
+                        if (start === null) start = currentTime;
+                        const timeElapsed = currentTime - start;
+                        const progress = Math.min(timeElapsed / duration, 1);
+                        
+                        // Easing function for smooth acceleration/deceleration
+                        const ease = progress < 0.5 
+                            ? 2 * progress * progress 
+                            : -1 + (4 - 2 * progress) * progress;
+                        
+                        window.scrollTo(0, startPosition + distance * ease);
+                        
+                        if (timeElapsed < duration) {
+                            requestAnimationFrame(animation);
+                        }
+                    };
+                    
+                    requestAnimationFrame(animation);
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-title, .glass-box, .logo-middle').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
