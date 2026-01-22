@@ -11,3 +11,6 @@ Live Server + Google Chrome.
 For any questions feel free to ask me via discord or email.
 Discord: vanderkraai
 Email: lindonlinux@gmail.com
+
+You can accsess the website here,
+https://vanderkraai.github.io/pepsi.html
