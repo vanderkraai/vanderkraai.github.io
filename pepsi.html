@@ -6,23 +6,465 @@
     <title>Pepsi Dee HQ</title>
     <link rel="stylesheet" href="pepsi.css">
     <style>
-        .nav-brand-text {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
+        html {
+    scroll-behavior: smooth;
+}
 
-        .nav-subtitle {
-            background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(150, 0, 150, 1));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 12px;
-            font-weight: normal;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('file_00000000e048722fa4d2e2c0559f22a9.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    scroll-behavior: smooth;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+}
+
+.logo {
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto 30px;
+}
+
+.pepsi-text {
+    color: white;
+    font-size: 48px;
+    margin: 0;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black,
+        -2px 0 0 black,
+        2px 0 0 black,
+        0 -2px 0 black,
+        0 2px 0 black;
+}
+
+/* Scroll Arrow */
+.scroll-arrow {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 32px;
+    color: rgba(255, 0, 0, 0.8);
+    transition: opacity 0.5s ease;
+    animation: bounce 2s infinite;
+    z-index: 500;
+    opacity: 1;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+.scroll-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Sticky Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.3), rgba(128, 0, 128, 0.3));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.navbar.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo {
+    max-width: 45px;
+    height: auto;
+}
+
+.nav-title {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    transition: 0.3s;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 1;
+}
+
+.nav-link.active {
+    background: rgba(255, 0, 0, 0.5);
+    border-color: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+.nav-link.latest-uploads {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 8px 15px;
+}
+
+.nav-link.latest-uploads:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-link.latest-uploads.active {
+    background: rgba(255, 0, 0, 0.5);
+    border-color: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+.github-link {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+}
+
+.github-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 1;
+}
+
+.github-link.active {
+    background: rgba(255, 0, 0, 0.5);
+    border-color: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+/* Content Section */
+.content-section {
+    min-height: 100vh;
+    padding: 60px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-margin-top: 80px;
+}
+
+.section-title {
+    color: white;
+    font-size: 48px;
+    margin-bottom: 50px;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black,
+        -2px 0 0 black,
+        2px 0 0 black,
+        0 -2px 0 black,
+        0 2px 0 black;
+    opacity: 0;
+    transition: opacity 1.5s ease-out 0.4s;
+}
+
+.section-title.visible {
+    opacity: 1;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Glass Box Styling */
+.glass-box {
+    background: rgba(150, 0, 150, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    width: 300px;
+    color: white;
+    font-size: 16px;
+    line-height: 1.6;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    opacity: 0;
+    transition: opacity 0.7s ease-out 0.15s;
+}
+
+.glass-box.visible {
+    opacity: 1;
+}
+
+.glass-box a {
+    color: #87CEEB;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.glass-box a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.glass-box.left {
+    align-self: flex-start;
+    margin-left: 40px;
+}
+
+.glass-box.right {
+    align-self: flex-end;
+    margin-right: 40px;
+}
+
+.logo-middle {
+    flex: 0 1 300px;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.7s ease-out 0.15s;
+}
+
+.logo-middle.visible {
+    opacity: 1;
+}
+
+.center-logo {
+    max-width: 250px;
+    height: auto;
+}
+
+.team-dig-box {
+    align-self: center;
+    margin: 0 auto;
+}
+
+/* Latest Uploads Section */
+.latest-uploads-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.logo-above-title {
+    flex: 0 1 200px;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.7s ease-out 0.15s;
+    margin-bottom: 20px;
+}
+
+.logo-above-title.visible {
+    opacity: 1;
+}
+
+.logo-above-title img {
+    max-width: 200px;
+    height: auto;
+}
+
+@keyframes gradientFlow {
+    0% {
+        border-color: rgba(150, 0, 150, 1);
+        box-shadow: 0 0 20px rgba(150, 0, 150, 0.6);
+    }
+    50% {
+        border-color: rgba(255, 0, 0, 1);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    }
+    100% {
+        border-color: rgba(150, 0, 150, 1);
+        box-shadow: 0 0 20px rgba(150, 0, 150, 0.6);
+    }
+}
+
+.video-player-container {
+    background: rgba(150, 0, 150, 0.15);
+    backdrop-filter: blur(10px);
+    border: 3px solid rgba(150, 0, 150, 1);
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 900px;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.7s ease-out 0.15s;
+    animation: gradientFlow 4s ease-in-out infinite;
+}
+
+.video-player-container.visible {
+    opacity: 1;
+}
+
+.video-player-link {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    transition: 0.3s;
+    margin: 0 auto;
+}
+
+.video-player-link:hover {
+    opacity: 0.8;
+}
+
+.video-thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 0, 0, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
+    transition: 0.3s;
+}
+
+.video-player-link:hover .play-button {
+    background: rgba(255, 0, 0, 1);
+    transform: scale(1.1);
+}
+
+.latest-info {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+}
+
+.latest-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.latest-date {
+    color: #87CEEB;
+    font-size: 14px;
+}
+
+.loading {
+    color: white;
+    font-size: 18px;
+}
     </style>
 </head>
 <body>
+    <!-- Scroll Arrow -->
+    <div class="scroll-arrow" id="scrollArrow">↓</div>
+
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
@@ -36,34 +478,36 @@
         <div class="nav-container">
             <div class="nav-brand">
                 <img src="ChatGPT Image Jan 22, 2026, 03_21_49 PM.png" alt="Pepsi Dee Logo" class="nav-logo">
-                <div class="nav-brand-text">
-                    <span class="nav-title">Pepsi Dee HQ</span>
-                    <span class="nav-subtitle">Created by vanderkraai on Discord</span>
-                </div>
+                <span class="nav-title">Pepsi Dee HQ</span>
             </div>
             <div class="nav-links">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about-us" class="nav-link">About Us</a>
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#latest-uploads" class="nav-link latest-uploads">Latest Uploads</a>
                 <a href="#team-dig" class="nav-link">About Team Dig</a>
+                <a href="#who-are-we" class="nav-link">About Us</a>
+                <a href="https://github.com/vanderkraai/vanderkraai.github.io" target="_blank" class="nav-link github-link"><span>GitHub</span></a>
             </div>
         </div>
     </nav>
 
-    <!-- Who Are We Section -->
-    <section class="content-section" id="who-are-we">
-        <h2 class="section-title">About Us</h2>
+    <!-- Latest Uploads Section -->
+    <section class="content-section" id="latest-uploads">
+        <div class="logo-above-title">
+            <img src="ChatGPT Image Jan 22, 2026, 03_21_49 PM.png" alt="Pepsi Dee Logo">
+        </div>
+
+        <h2 class="section-title">Latest Uploads</h2>
         
-        <div class="content-wrapper">
-            <div class="glass-box left">
-                <p>Pepsi Dee HQ is dedicated to maintaining fair gameplay and protecting the gaming community. Subscribe at <a href="https://www.youtube.com/@PepsiDee" target="_blank">www.youtube.com/@PepsiDee</a></p>
-            </div>
-
-            <div class="logo-middle">
-                <img src="ChatGPT Image Jan 22, 2026, 03_21_49 PM.png" alt="Pepsi Dee Logo" class="center-logo">
-            </div>
-
-            <div class="glass-box right">
-                <p>Our mission is to ensure every player has an enjoyable and cheat-free experience. Join us at <a href="https://discord.gg/pepsidee" target="_blank">discord.gg/pepsidee</a></p>
+        <div class="latest-uploads-section">
+            <div class="video-player-container">
+                <a href="https://www.youtube.com/watch?v=x2eGxN_mw3Y" target="_blank" class="video-player-link">
+                    <img src="https://img.youtube.com/vi/x2eGxN_mw3Y/maxresdefault.jpg" alt="Latest Video Thumbnail" class="video-thumbnail-img">
+                    <div class="play-button">▶</div>
+                </a>
+                <div class="latest-info">
+                    <div class="latest-title" id="latestTitle">Latest Video</div>
+                    <div class="latest-date" id="latestDate">Click to watch on YouTube</div>
+                </div>
             </div>
         </div>
     </section>
@@ -83,7 +527,65 @@
         </div>
     </section>
 
+    <!-- About Us Section -->
+    <section class="content-section" id="who-are-we">
+        <h2 class="section-title">About Us</h2>
+        
+        <div class="content-wrapper">
+            <div class="glass-box left">
+                <p>Pepsi Dee HQ is dedicated to maintaining fair gameplay and protecting the gaming community. Subscribe at <a href="https://www.youtube.com/@PepsiDee" target="_blank">www.youtube.com/@PepsiDee</a></p>
+            </div>
+
+            <div class="logo-middle">
+                <img src="ChatGPT Image Jan 22, 2026, 03_21_49 PM.png" alt="Pepsi Dee Logo" class="center-logo">
+            </div>
+
+            <div class="glass-box right">
+                <p>Our mission is to ensure every player has an enjoyable and cheat-free experience. Join us at <a href="https://discord.gg/pepsidee" target="_blank">discord.gg/pepsidee</a></p>
+            </div>
+        </div>
+    </section>
+
     <script>
+        // YouTube API Configuration
+        const YOUTUBE_API_KEY = 'YOUR_YOUTUBE_API_KEY_HERE'; // Replace with your API key
+        const CHANNEL_ID = 'UCohRGVrxRjWexwyF-KIAWkQ'; // PepsiDee channel ID
+
+        // Update active nav link on scroll and arrow visibility
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.content-section, .hero');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const scrollArrow = document.getElementById('scrollArrow');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (pageYOffset >= sectionTop - 200 && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Show/hide arrow based on current section
+            const whoAreWeSection = document.getElementById('who-are-we');
+            const whoAreWeTop = whoAreWeSection.offsetTop;
+            const whoAreWeHeight = whoAreWeSection.offsetHeight;
+            
+            if (pageYOffset >= whoAreWeTop && pageYOffset < whoAreWeTop + whoAreWeHeight) {
+                scrollArrow.classList.add('hidden');
+            } else {
+                scrollArrow.classList.remove('hidden');
+            }
+        });
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -134,13 +636,9 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.section-title, .glass-box, .logo-middle').forEach(el => {
+        document.querySelectorAll('.section-title, .glass-box, .logo-middle, .video-player-container, .logo-above-title').forEach(el => {
             observer.observe(el);
         });
     </script>
 </body>
 </html>
-
-
-
-
