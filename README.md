@@ -1,4 +1,4 @@
-Welcome too the single development team of PepsiDeeHQ Website.
+Welcome to the development of the PepsiDeeHQ site that nobody asked for.
 
 The following sofware and AI + VSC extentions used to create this html/css site was,
 
