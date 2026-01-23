@@ -1,5 +1,5 @@
 Welcome too the single development team of PepsiDeeHQ Website.
-This site is in v0.1 Be weary that bugs may appear on the site, since its in very early development.
+the current build is v0.1 = v0.2 Be weary that bugs may appear on the site, since its in very early development.
 
 The following sofware and AI + VSC extentions used to create this html/css site was,
 
@@ -14,6 +14,8 @@ Email: lindonlinux@gmail.com
 
 You can accsess the website here,
 https://vanderkraai.github.io/pepsi.html
+
+Updates; Added user rights when at the bottom of the page.
 
 
 © 2026 vanderkraai. All rights reserved.
