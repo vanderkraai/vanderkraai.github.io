@@ -16,7 +16,7 @@ https://vanderkraai.github.io/pepsi.html
 
 
 
-Updates. Added user rights when at the bottom of the page + changed the text on about team dig.
+Updates. Added user rights when at the bottom of the page, changed the text on about team dig again.
 v0.2 has released, buggs may appear.
 
 © 2026 vanderkraai. All rights reserved.
