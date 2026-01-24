@@ -159,17 +159,20 @@ body {
         1px -1px 0 black,
         -1px 1px 0 black,
         1px 1px 0 black;
-    transition: 0.3s;
+    transition: 0.3s ease;
     cursor: pointer;
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 8px 15px;
     border-radius: 5px;
+    transform: scale(1);
 }
 
 .nav-link:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.5);
     opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 .nav-link.active {
@@ -186,7 +189,9 @@ body {
 }
 
 .nav-link.latest-uploads:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 .nav-link.latest-uploads.active {
