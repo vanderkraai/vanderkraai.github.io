@@ -16,7 +16,7 @@ https://vanderkraai.github.io/pepsi.html
 
 
 
-Updates. Made an update on the top bar, when you hover over the tabs they get highlighted.
+Updates. The navbar up top now will lightup and become slightly bigger when hovered over.
 v0.2.1 has released, buggs may appear.
 
 © 2026 vanderkraai. All rights reserved.
